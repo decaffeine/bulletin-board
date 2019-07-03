@@ -1,5 +1,6 @@
 package com.study.board.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +12,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Getter
 @Entity
-public class Post {
+public class Article {
 
     @Id
     @GeneratedValue
@@ -25,8 +26,10 @@ public class Post {
 
     private String author;
 
-    
-    public Post(String title, String content, String author) {
-
+    @Builder
+    public Article(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
     }
 }
